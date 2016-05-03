@@ -1,3 +1,7 @@
-@import "profile-view";
-@import "register-view";
-@import "login-view";
+@import "modules/profile-view";
+@import "modules/register-view";
+@import "modules/login-view";
+
+#profile-submit-btn {
+  margin-bottom: 20px;
+}

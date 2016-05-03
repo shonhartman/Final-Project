@@ -1,0 +1,14 @@
+<form class="{$modifiers}" ng-submit="registerCtrl.register()">
+  <h1>Register</h1>
+  <fieldset>
+    <div class="wy-control-group">
+      <div class="wy-control">
+        <input type="text" placeholder="username" ng-model="registerCtrl.newUser.username"/>
+      </div>
+      <div class="wy-control">
+        <input type="text" placeholder="password" ng-model="registerCtrl.newUser.password"/>
+      </div>
+    </div>
+    <input type="submit" class="btn" />
+  </fieldset>
+</form>
