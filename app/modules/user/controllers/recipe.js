@@ -12,6 +12,7 @@ class RecipeController {
       .then(response => {
          let el = document.createElement('div');
           el.innerHTML = response.data;
+          //logic goes here?
 
           let title = el.querySelector(".main-title");
           console.log(title.textContent);
