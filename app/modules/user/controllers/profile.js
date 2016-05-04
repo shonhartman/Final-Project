@@ -14,6 +14,11 @@ class ProfileController {
     });
   }
 
+  recipe() {
+    this._UserService.recipe();
+    this._$state.go("recipe");
+  }
+
   logout() {
     this._UserService.logout();
     this._$state.go("login");
