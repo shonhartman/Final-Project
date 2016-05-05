@@ -12,6 +12,12 @@
   </fieldset>
 </form>
 
+
+<div ng-repeat="recipe in profileCtrl.recipes">
+  <a ui-sref="recipe({ id: recipe.$id })">{{ recipe.title }}</a>
+</div>
+
+
 <div class="cards">
   <div class="card">
     <div class="card-image">

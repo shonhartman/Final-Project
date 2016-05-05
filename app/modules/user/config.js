@@ -15,8 +15,8 @@ function config($stateProvider) {
     controller: "RegisterController as registerCtrl",
     template: require("./views/register.html")
   })
-  .state("recipe", {
-    url:"/recipe",
+  .state("recipes", {
+    url:"/recipes",
     controller: "RecipeController as recipeCtrl",
     template: require("./views/recipe.html")
   })

@@ -1,13 +1,16 @@
 class ProfileController {
-  constructor($state, UserService) {
+  constructor($state, UserService, RecipeService) {
     this._$state = $state;
     this._UserService = UserService;
+    this._RecipeService = RecipeService;
     this.recipeUrl = "https://www.blueapron.com/recipes/middle-eastern-chicken-chickpea-stew-with-cilantro-chermoula-pita-croutons";
 
     this._UserService
     .isLoggedIn()
     .then((response) => {
       this.user = response;
+      this.recipes = this._RecipeService.login(this.user);
+      console.log(this.recipes);
     })
 
     .catch((error) => {
@@ -18,10 +21,12 @@ class ProfileController {
   recipe() {
     this._UserService.recipe(this.recipeUrl)
       .then((response) => {
+        return this._RecipeService.add(response);
+      })
+      .then((response) => {
         console.log(response);
         // this._$state.go("recipe");
-      })
-
+      });
   }
 
   logout() {

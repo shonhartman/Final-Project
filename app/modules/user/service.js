@@ -58,10 +58,13 @@ class UserService {
     splitUrl[2] = "aqueous-castle-96746.herokuapp.com";
     url = splitUrl.join("/")
 
+    console.log("request sent");
+
     this._$http
       .get(url)
       .then((response) => {
-        let recipe = {};
+        console.log("request back");
+        let recipe = { steps: []};
 
         let el = document.createElement('div');
         el.innerHTML = response.data;
@@ -72,12 +75,26 @@ class UserService {
         let steps = instructions.querySelectorAll(".instr-step");
 
         Array.from(steps).forEach((step) => {
-          let title = step.querySelector('.instr-title').textContent
-          console.log(title);
-          let action = step.querySelector('p').textContent.split(".")
-          console.log(action);
-          let time = step.querySelector('p').textContent.slice("minutes")
-          console.log(time);
+          let newStep = { actions: [] };
+          newStep.title = step.querySelector('.instr-title').textContent
+          let actions = step.querySelector('p').textContent.split(".")
+
+          actions.forEach((action) => {
+            let newAction = { text: action, minutes: "" };
+            let matches = /(\d*) to \d* minutes/.exec(action);
+
+            console.log(action);
+
+            if (matches !== null && matches.length > 0) {
+              newAction.minutes = matches[1];
+            }
+
+            newStep.actions.push(newAction);
+          })
+
+          // console.log(time);
+
+          recipe.steps.push(newStep);
         });
 
         resolve(recipe);

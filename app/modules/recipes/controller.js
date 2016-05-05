@@ -1,25 +1,26 @@
 class RecipeController {
-  constructor(RecipeService, UserService) {
+  constructor(RecipeService, UserService, $stateParams) {
     this._UserService = UserService;
     this._RecipeService = RecipeService;
-    this.recipe = RecipeService.new();
-
+    
     this._UserService
     .isLoggedIn()
     .then((response) => {
       this.user = response;
-      this.recipes = RecipeService.login(response);
+      RecipeService.get(this.user, $stateParams.id)
+        .then((response) => {
+          console.log(response);
+          this.recipe = response;
+        })
+        .catch((error) => {
+          console.error(error);
+        });
     })
-
     .catch((error) => {
       this.$state.go("login");
     });
   }
 
-  addRecipe() {
-    this._RecipeService.addRecipe(this.recipe);
-    this.recipe = this._RecipeService.new();
-  }
 }
 
 export default RecipeController;
