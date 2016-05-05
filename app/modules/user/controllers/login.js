@@ -1,7 +1,8 @@
 class LoginController {
   constructor($state, UserService) {
     this._$state = $state;
-    this._UserService = UserService.new();
+    this._UserService = UserService;
+    this.user = this._UserService.new();
   }
 
   login(user) {
@@ -9,8 +10,8 @@ class LoginController {
     .login(this.user)
     .then((response) => {
       this.user = response;
-      resolve(this.user);
-    })
+      this._$state.go("profile");
+    });
   }
 }
 

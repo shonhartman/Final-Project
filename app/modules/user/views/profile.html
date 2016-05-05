@@ -1,9 +1,11 @@
+<button ng-click="profileCtrl.logout()">Logout</button>
+
 <form class="{$modifiers}" ng-submit="profileCtrl.recipe()">
   <h1>Recipe Url</h1>
   <fieldset>
     <div class="wy-control-group">
       <div class="wy-control">
-        <input type="text" placeholder="http://" ng-model="profileCtrl.recipe.id"/>
+        <input type="text" placeholder="http://" ng-model="profileCtrl.recipeUrl"/>
       </div>
     </div>
     <input id="profile-submit-btn" type="submit" class="btn" />

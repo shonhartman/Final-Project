@@ -11,7 +11,6 @@ class RegisterController {
     .then((response) => {
       this._$state.go("profile");
     })
-
     .catch((error) => {
       console.error(error);
     })

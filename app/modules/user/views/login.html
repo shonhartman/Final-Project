@@ -1,12 +1,12 @@
-<form class="{$modifiers}" ng-submit="loginCtrl.register">
+<form class="{$modifiers}" ng-submit="loginCtrl.login()">
   <h1>Login</h1>
   <fieldset>
     <div class="wy-control-group">
       <div class="wy-control">
-        <input type="text" placeholder="username" ng-model="loginCtrl.newUser.username"/>
+        <input type="text" placeholder="username" ng-model="loginCtrl.user.email"/>
       </div>
       <div class="wy-control">
-        <input type="text" placeholder="password" ng-model="loginCtrl.newUser.password"/>
+        <input type="password" placeholder="password" ng-model="loginCtrl.user.password"/>
       </div>
     </div>
     <input type="submit" class="btn" />

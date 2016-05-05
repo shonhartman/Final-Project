@@ -2,6 +2,7 @@ class ProfileController {
   constructor($state, UserService) {
     this._$state = $state;
     this._UserService = UserService;
+    this.recipeUrl = "https://www.blueapron.com/recipes/middle-eastern-chicken-chickpea-stew-with-cilantro-chermoula-pita-croutons";
 
     this._UserService
     .isLoggedIn()
@@ -15,8 +16,12 @@ class ProfileController {
   }
 
   recipe() {
-    this._UserService.recipe();
-    this._$state.go("recipe");
+    this._UserService.recipe(this.recipeUrl)
+      .then((response) => {
+        console.log(response);
+        // this._$state.go("recipe");
+      })
+
   }
 
   logout() {
