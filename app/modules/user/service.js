@@ -78,7 +78,8 @@ class UserService {
 
           Array.from(steps).forEach((step) => {
             let newStep = {
-              actions: []
+              actions: [],
+              images: []
             };
             newStep.title = step.querySelector('.instr-title').textContent
             let actions = step.querySelector('p').textContent.split(".")
@@ -100,22 +101,11 @@ class UserService {
             })
 
             //get image url///////////////////////////////////
-            let images = el.querySelector("img");
+            let images = step.querySelectorAll("img");
 
-            images.forEach((image) => {
-              let newImage = {
-                image_url: ""
-              };
-              let image_urls = /<(\s+)?img(?:.*src=["'](.*?)["'].*)\/>?/gmi.exec(image);
-
-              console.log(image);
-
-              if (matches !== null && images.length > 0) {
-                return.data.image_url;
-              }
-
-              newImage.images.push(newImage);
-            })
+            Array.from(images).forEach((image) => {
+              newStep.images.push(image.src);
+            });
             ////////////////////////////////////////////////////////////
 
             // console.log(time);

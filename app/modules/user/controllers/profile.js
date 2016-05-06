@@ -25,7 +25,7 @@ class ProfileController {
       })
       .then((response) => {
         console.log(response);
-        // this._$state.go("recipe");
+        this._$state.go("recipe", { id: response.key() });
       });
   }
 
