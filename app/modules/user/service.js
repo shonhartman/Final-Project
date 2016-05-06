@@ -18,13 +18,13 @@ class UserService {
   login(user) {
     return new this._$q((resolve, reject) => {
       this.auth.$authWithPassword(user)
-      .then((response) => {
-        resolve(response);
-      })
-      .catch((error) => {
-        console.error("Authentication failed:", error);
-        reject(error);
-      });
+        .then((response) => {
+          resolve(response);
+        })
+        .catch((error) => {
+          console.error("Authentication failed:", error);
+          reject(error);
+        });
     });
   }
 
@@ -38,71 +38,97 @@ class UserService {
   create(user) {
     return new this._$q((resolve, reject) => {
       this.auth.$createUser(user)
-      .then((response) => {
-        this.user = response;
-        return this.auth.$authWithPassword(user);
-      })
-      .then((response) => {
-        resolve(response);
-      })
-      .catch((error) => {
-        reject(error);
-      })
+        .then((response) => {
+          this.user = response;
+          return this.auth.$authWithPassword(user);
+        })
+        .then((response) => {
+          resolve(response);
+        })
+        .catch((error) => {
+          reject(error);
+        })
     });
   }
 
   recipe(url) {
     return new this._$q((resolve, reject) => {
 
-    let splitUrl = url.split("/");
-    splitUrl[2] = "aqueous-castle-96746.herokuapp.com";
-    url = splitUrl.join("/")
+      let splitUrl = url.split("/");
+      splitUrl[2] = "aqueous-castle-96746.herokuapp.com";
+      url = splitUrl.join("/")
 
-    console.log("request sent");
+      console.log("request sent");
 
-    this._$http
-      .get(url)
-      .then((response) => {
-        console.log("request back");
-        let recipe = { steps: []};
+      this._$http
+        .get(url)
+        .then((response) => {
+          console.log("request back");
+          let recipe = {
+            steps: []
+          };
 
-        let el = document.createElement('div');
-        el.innerHTML = response.data;
+          let el = document.createElement('div');
+          el.innerHTML = response.data;
 
-        let instructions = el.querySelector("#instructions");
-        recipe.title = el.querySelector(".main-title").textContent;
+          let instructions = el.querySelector("#instructions");
+          recipe.title = el.querySelector(".main-title").textContent;
 
-        let steps = instructions.querySelectorAll(".instr-step");
+          let steps = instructions.querySelectorAll(".instr-step");
 
-        Array.from(steps).forEach((step) => {
-          let newStep = { actions: [] };
-          newStep.title = step.querySelector('.instr-title').textContent
-          let actions = step.querySelector('p').textContent.split(".")
+          Array.from(steps).forEach((step) => {
+            let newStep = {
+              actions: []
+            };
+            newStep.title = step.querySelector('.instr-title').textContent
+            let actions = step.querySelector('p').textContent.split(".")
 
-          actions.forEach((action) => {
-            let newAction = { text: action, minutes: "" };
-            let matches = /(\d*) to \d* minutes/.exec(action);
+            actions.forEach((action) => {
+              let newAction = {
+                text: action,
+                minutes: ""
+              };
+              let matches = /(\d*) to \d* minutes/.exec(action);
 
-            console.log(action);
+              console.log(action);
 
-            if (matches !== null && matches.length > 0) {
-              newAction.minutes = matches[1];
-            }
+              if (matches !== null && matches.length > 0) {
+                newAction.minutes = matches[1];
+              }
 
-            newStep.actions.push(newAction);
-          })
+              newStep.actions.push(newAction);
+            })
 
-          // console.log(time);
+            //get image url///////////////////////////////////
+            let images = el.querySelector("img");
 
-          recipe.steps.push(newStep);
-        });
+            images.forEach((image) => {
+              let newImage = {
+                image_url: ""
+              };
+              let image_urls = /<(\s+)?img(?:.*src=["'](.*?)["'].*)\/>?/gmi.exec(image);
 
-        resolve(recipe);
-      })
+              console.log(image);
+
+              if (matches !== null && images.length > 0) {
+                return.data.image_url;
+              }
+
+              newImage.images.push(newImage);
+            })
+            ////////////////////////////////////////////////////////////
+
+            // console.log(time);
+
+            recipe.steps.push(newStep);
+          });
+
+          resolve(recipe);
+        })
         .catch(error => {
           console.error(error);
         })
-  });
+    });
   }
 }
 
