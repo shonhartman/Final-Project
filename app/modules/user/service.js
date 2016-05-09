@@ -98,7 +98,9 @@ class UserService {
                 newAction.minutes = matches[1];
               }
 
-              newStep.actions.push(newAction);
+              if (newAction.text !== "") {
+                newStep.actions.push(newAction);                
+              }
             })
 
             //get image url///////////////////////////////////

@@ -2,7 +2,7 @@
 			<section id="header">
 				<header>
 					<h1>{{ recipeCtrl.recipe.title }}</h1>
-					<p>with Snow Peas, Pea Tips & Garlic Peanuts</p>
+					<p>{{ recipeCtrl.recipe.small }}</p>
 				</header>
 				<footer>
 					<a href="#banner" class="button style2 scrolly-middle">Instructions</a>
@@ -18,81 +18,36 @@
 				chopping <strong>peanuts</strong>, and <br />
 				under the <a href="http://html5up.net/license">slicing scallions</a>.</p>
 				<footer>
-					<a href="#first" class="button style2 scrolly">Start Cooking</a>
+					<a ng-href="#step_0" class="button style2" du-smooth-scroll>Start Cooking</a>
 				</footer>
 			</section>
 
+
 		<!-- Feature 1 -->
-			<article id="first" class="container box style1 right">
-				<a href="#" class="image fit"><img src="https://media.blueapron.com/recipes/1604/recipe_steps/7210/20160325-2011-4-4947/2P_031516_3_SpicyPeanutNoodle-6987_high_feature.jpg" alt="" /></a>
+		<span ng-repeat="step in recipeCtrl.recipe.steps">
+			<article id="step_{{ $index }}" class="container box style1 right">
+				<a href="#" class="image fit"><img ng-src="{{ step.images[0] }}" alt="" /></a>
 				<div class="inner">
 					<header>
-						<h2>Prepare the ingredients</h2>
+						<h2>{{ step.title }}</h2>
 					</header>
-					<p>Wash and dry the fresh produce</p>
-					<a href="#first" class="button style2 scrolly">Done</a>
+					<a ng-href="#action_0" class="button style2" du-smooth-scroll>Done</a>
 				</div>
 			</article>
 
-		<!-- List Item -->
-			<article class="container box style2">
-				<header>
-					<p>Heat a large pot of salted water to boiling on high</p>
+			<!-- List Item -->
+			<article class="container box style2" ng-repeat="action in step.actions">
+				<header id="action_{{ $index + 1}}">
+					<p>{{ action.text }}</p>
 					<div class="12u$">
 						<ul class="actions">
-							<li><input type="button" value="Done"/></li>
+							<li><input type="button" value="Done" ng-href="#action_{{ $index + 1 }}" du-smooth-scroll/></li>
 						</ul>
 					</div>
 				</header>
 			</article>
 
-		<!-- List Item -->
-			<article class="container box style2">
-				<header>
-					<p>Peel and mince the garlic</p>
-					<div class="12u$">
-						<ul class="actions">
-							<li><input type="button" value="Done"/></li>
-						</ul>
-					</div>
-				</header>
-			</article>
-
-		<!-- Feature 2 -->
-			<article class="container box style1 left">
-				<a href="#" class="image fit"><img src="https://media.blueapron.com/recipes/1604/recipe_steps/7212/20160325-2011-4-9419/2P_031516_3_SpicyPeanutNoodle-6990_high_feature.jpg" alt="" /></a>
-				<div class="inner">
-					<header>
-						<h2>Make the garlic peanuts</h2>
-					</header>
-					<p>In the pot used to cook the noodles, heat 1 teaspoon of olive oil on medium-high until hot</p>
-				</div>
-			</article>
-
-		<!-- List Item -->
-			<article class="container box style2">
-				<header>
-					<p>Add the garlic and peanuts; season with salt and pepper</p>
-					<div class="12u$">
-						<ul class="actions">
-							<li><input type="button" value="Done" /></li>
-						</ul>
-					</div>
-				</header>
-			</article>
-
-		<!-- List Item -->
-			<article class="container box style2">
-				<header>
-					<p>Add the garlic and peanuts; season with salt and pepper</p>
-					<div class="12u$">
-						<ul class="actions">
-							<li><input type="button" value="Done" /></li>
-						</ul>
-					</div>
-				</header>
-			</article>
-
+		</span>
 
 		<section id="footer">
 			<ul class="icons">
