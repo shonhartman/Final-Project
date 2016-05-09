@@ -73,6 +73,7 @@ class UserService {
 
           let instructions = el.querySelector("#instructions");
           recipe.title = el.querySelector(".main-title").textContent;
+          recipe.small = el.querySelector(".sub-title").textContent;
 
           let steps = instructions.querySelectorAll(".instr-step");
 
@@ -107,8 +108,6 @@ class UserService {
               newStep.images.push(image.src);
             });
             ////////////////////////////////////////////////////////////
-
-            // console.log(time);
 
             recipe.steps.push(newStep);
           });
