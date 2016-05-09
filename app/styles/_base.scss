@@ -1,0 +1,86 @@
+html, body, div, span, h1, p, blockquote, em, img, ins, kbd, q, s, samp, small, strong, var, b, u, i, center, ul, li, form, label, article, footer, header, hgroup, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+*, *:before, *:after {
+		box-sizing: border-box;
+	}
+
+
+  	body {
+  		background-color: #313567;
+  		font-family: 'Source Sans Pro', sans-serif;
+  		font-size: 18pt;
+  		line-height: 1.75em;
+  		font-weight: 300;
+  		letter-spacing: 1px;
+  		color: #3a3939;
+  		text-shadow: 0 0 0.5px rgba(58, 57, 57, 0.25);
+        &.is-scroll {
+          background-attachment: scroll, scroll;
+          background-size: auto, 100% auto;
+        }
+        &.is-loading * {
+    			transition: none !important;
+    			animation: none !important;
+    		}
+  	}
+
+  	input {
+  		font-family: 'Source Sans Pro', sans-serif;
+  		font-size: 18pt;
+  		line-height: 1.75em;
+  		font-weight: 300;
+  		letter-spacing: 1px;
+  		color: #3a3939;
+  		text-shadow: 0 0 0.5px rgba(58, 57, 57, 0.25);
+  	}
+
+  	h1, h2 {
+  		font-weight: 400;
+  		text-transform: uppercase;
+  		line-height: 1.75em;
+  	}
+
+  	h2 {
+  		font-size: 1.25em;
+  		letter-spacing: 8px;
+  	}
+
+  	a {
+  		transition: border-color 0.35s ease-in-out, color 0.35s ease-in-out;
+  		text-shadow: 0 0 0.5px rgba(53, 184, 143, 0.25);
+  		text-decoration: none;
+  		border-bottom: dotted 1px rgba(53, 184, 143, 0.5);
+        &:hover {
+          border-bottom-color: rgba(53, 184, 143, 0);
+        }
+  	}
+
+  	p, ul {
+  		margin-bottom: 1em;
+  	}
+
+  	header {
+  		margin-bottom: 1em;
+        p {
+          display: block;
+          margin: 0.5em 0 0 0;
+          padding: 0 0 1.5em 0;
+        }
+  	}
+
+  	footer {margin-top: 1em;}
+
+    /* List */
+
+    ul {
+      list-style: none;
+        &.icons a {border: 0;}
+        &.actions li {margin: 1em 0 0 0.5em;}
+    }

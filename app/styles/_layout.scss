@@ -1,0 +1,130 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1140px;
+    @media #{$XL} {
+      width: 960px;
+    }
+   @media #{$LG} {
+     width: 95%;
+    }
+  }
+
+  .row {
+    border-bottom: solid 1px transparent;
+    box-sizing: border-box;
+    margin: -40px 0 -1px -40px;
+      &:after, &:before {
+        content: '';
+        display: block;
+        clear: both;
+        height: 0;
+      }
+      @media #{$XL} {
+        margin: -40px 0 -1px -40px;
+      }
+     @media #{$LG} {
+       margin: -40px 0 -1px -40px;
+      }
+      @media #{$Mid} {
+        margin: -30px 0 -1px -30px;
+      }
+     @media #{$Small} {
+       margin: -20px 0 -1px -20px;
+      }
+  }
+
+    .box {
+      position: relative;
+      margin-top: 9em;
+      margin-bottom: 0;
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: -9em;
+          left: 50%;
+          height: 9em;
+          border-left: solid 1px #fff;
+        }
+        &:before {
+          content: '';
+          display: block;
+          width: 90px;
+          height: 66px;
+          position: absolute;
+          left: 50%;
+          top: -4.5em;
+          margin-left: -45px;
+          margin-top: -33px;
+          background: url("../images/arrow.svg") no-repeat;
+        }
+        & :last-child {margin-bottom: 0;}
+        &.style1 {
+          background: #fff;
+          padding: 3em;
+        }
+        &.style1 .image {
+          display: block;
+          position: absolute;
+          top: 0;
+          width: 50%;
+          height: 100%;
+          background: $brand-color;
+          overflow: hidden;
+        }
+        &.style1 .image img {
+          position: absolute;
+          top: 0;
+          height: 100%;
+          width: auto;
+        }
+        &.style1.right .image {left: 0;}
+        &.style1.right .image img {right: 0;}
+        &.style1.right .inner {
+          margin-left: 50%;
+          padding-left: 3em;
+        }
+        &.style1.left .image {right: 0;}
+        &.style1.left .image img {left: 0;}
+        &.style1.left .inner {
+          margin-right: 50%;
+          padding-right: 3em;
+        }
+        &.style2 {text-align: center;}
+        &.style2 header {
+          display: inline-block;
+          background: #fff;
+          padding: 2em 3em 2em 3em;
+          margin: 0;
+        }
+        &.style2 header p {padding: 0;}
+        &.style2 .inner {
+          position: relative;
+          padding: 40px 0 0px 0;
+        }
+        &.style2 .inner:after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 50%;
+          height: 100%;
+          border-left: solid 1px #fff;
+        }
+        &.style2 .inner .row {position: relative;}
+        &.style2 .inner .row:before {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 20px;
+          width: calc(100% - 40px);
+          border-bottom: solid 1px #fff;
+        }
+        &.style2 .inner .image {
+          position: relative;
+          z-index: 1;
+          padding: 20px;
+        }
+    }

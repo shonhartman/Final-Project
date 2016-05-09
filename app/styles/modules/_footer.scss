@@ -1,0 +1,33 @@
+#footer {
+  position: relative;
+  color: #fff;
+  text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25);
+  text-align: center;
+  margin: 4.5em 0 0 0;
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -4.5em;
+      left: 50%;
+      height: 4.5em;
+      border-left: solid 1px #fff;
+    }
+    a {
+      color: #fff;
+      text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25);
+      border-bottom-color: rgba(255, 255, 255, 0.5);
+        &:hover {
+          color: #35b88b;
+          text-shadow: 0 0 0.5px rgba(69, 200, 159, 0.25);
+          border-bottom-color: rgba(53, 184, 143, 0.5);
+        }
+      }
+    .icons {
+      padding: 0.75em 2em 0.75em 2em;
+      border-radius: 3em;
+      border: solid 1px #fff;
+      display: inline-block;
+      margin: 0 0 3em 0;
+    }
+  }
