@@ -96,10 +96,11 @@ class UserService {
 
               if (matches !== null && matches.length > 0) {
                 newAction.minutes = matches[1];
+                newAction.timeLeft = newAction.minutes * 60;
               }
 
               if (newAction.text !== "") {
-                newStep.actions.push(newAction);                
+                newStep.actions.push(newAction);
               }
             })
 

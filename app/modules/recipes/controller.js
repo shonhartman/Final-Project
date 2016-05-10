@@ -1,8 +1,9 @@
 class RecipeController {
-  constructor(RecipeService, UserService, $stateParams) {
+  constructor(RecipeService, UserService, $stateParams, $interval) {
     this._UserService = UserService;
     this._RecipeService = RecipeService;
-    
+    this._$interval = $interval;
+
     this._UserService
     .isLoggedIn()
     .then((response) => {
@@ -21,6 +22,28 @@ class RecipeController {
     });
   }
 
+  startTime(action) {
+    console.log("clicked start");
+   action.timerRunning = true;
+
+   action.time = this._$interval(() => {
+     action.timeLeft--;
+     if (action.timeLeft <= 0) {
+       action.timerRunning = false;
+       this._$interval.cancel(action.time);
+     }
+   }, 1000);
+ }
+
+ stopTime(action) {
+   action.timerRunning = false;
+   this._$interval.cancel(action.time);
+ }
+
+ resetTime(action) {
+   action.timerRunning = false;
+   action.timeLeft = action.minutes * 60;
+ }
 }
 
 export default RecipeController;

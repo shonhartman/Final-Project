@@ -39,16 +39,21 @@
 			<article class="container box style2" ng-repeat="action in step.actions">
 				<header id="action_{{ $index + 1}}">
 					<p>{{ action.text }}</p>
+
+					<div class="timer" ng-if="action.minutes">
+					  <h1>{{ action.timeLeft | timecode }}</h1>
+					  <div class="controls">
+					    <button ng-click="recipeCtrl.startTime(action)" ng-disabled="action.timerRunning">start</button>
+					    <button ng-click="recipeCtrl.stopTime(action)" ng-disabled="!action.timerRunning">stop</button>
+					    <button ng-click="recipeCtrl.resetTime(action)">reset</button>
+					  </div>
+					</div>
+
 					<div class="12u$">
 						<ul class="actions">
-							<li><input type="button" value="Done" ng-href="#action_{{ $index + 1 }}"  du-smooth-scroll/>ng-if="#action===$last"</li>
-							<li class="timer-container" ng-app="Timer" ng-controller="Time">
-								<h1>{{ timeLeft | timecode }}</h1>
-								<div class="controls">
-									<button ng-click="startTime()" ng-disabled="disabled">start</button>
-									<button ng-click="stopTime()" ng-disabled="!disabled">stop</button>
-									<button ng-click="resetTime()">reset</button>
-								</div>
+							<li>
+								<input type="button" value="Done" ng-href="#action_{{ $index + 1 }}" ng-if="$last === false" du-smooth-scroll>
+								<input type="button" value="Done" ng-href="#step_{{ $parent.$parent.$index + 1 }}" ng-if="$last" du-smooth-scroll>
 							</li>
 						</ul>
 					</div>
