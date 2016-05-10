@@ -41,7 +41,15 @@
 					<p>{{ action.text }}</p>
 					<div class="12u$">
 						<ul class="actions">
-							<li><input type="button" value="Done" ng-href="#action_{{ $index + 1 }}" du-smooth-scroll/></li>
+							<li><input type="button" value="Done" ng-href="#action_{{ $index + 1 }}"  du-smooth-scroll/>ng-if="#action===$last"</li>
+							<li class="timer-container" ng-app="Timer" ng-controller="Time">
+								<h1>{{ timeLeft | timecode }}</h1>
+								<div class="controls">
+									<button ng-click="startTime()" ng-disabled="disabled">start</button>
+									<button ng-click="stopTime()" ng-disabled="!disabled">stop</button>
+									<button ng-click="resetTime()">reset</button>
+								</div>
+							</li>
 						</ul>
 					</div>
 				</header>
