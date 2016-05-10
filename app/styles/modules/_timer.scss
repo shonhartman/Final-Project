@@ -1,23 +1,23 @@
-.timer-container {
+.timer {
   position: absolute;
-  top: 50%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
-  white-space: nowrap;
-  padding: 20px 30px;
+  // white-space: nowrap;
+  // padding: 20px 30px;
   overflow: hidden;
   h1 {
     text-align: center;
-    font: 400 4.9vw/1.4 'Play';
+    font: 400 4.9vw/1.4;
     color: blue;
     letter-spacing: 0px;
   }
-  button {
+  #start, #stop, #reset {
     position: relative;
     margin: 0 4px;
     padding: 12px 8px;
     background: none;
-    border: 1px solid yellow;
+    border: 1px solid black;
     border-radius: 50px;
     font: 400 1vw 'Arial';
     cursor: pointer;
@@ -32,7 +32,7 @@
       height: 100%;
       top: -100%;
       left: 0;
-      background: black;
+      background: #666;
       transition: all .1s ease-in-out;
       z-index: -1;
     }
