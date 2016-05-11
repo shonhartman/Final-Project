@@ -71,16 +71,13 @@
         &.style2 {
           text-align: center;}
         &.style2 header {
+          border-radius: 5px;
           display: inline-block;
           background: #fff;
           padding: 2em 3em 2em 3em;
           margin: 0;
         }
         &.style2 header p {padding: 0;}
-        &.style2 .inner {
-          position: relative;
-          padding: 40px 0 0px 0;
-        }
         &.style2 .inner:after {
           content: '';
           display: block;

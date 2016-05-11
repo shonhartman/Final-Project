@@ -4,6 +4,11 @@ class RecipeController {
     this._RecipeService = RecipeService;
     this._$interval = $interval;
 
+    this.sound = new buzz.sound("assets/audio/buzz.mp3", {
+      formats: ["mp3"],
+      preload: true
+    });
+
     this._UserService
     .isLoggedIn()
     .then((response) => {
@@ -31,6 +36,7 @@ class RecipeController {
      if (action.timeLeft <= 0) {
        action.timerRunning = false;
        this._$interval.cancel(action.time);
+       this.sound.play();
      }
    }, 1000);
  }

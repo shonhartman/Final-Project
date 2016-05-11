@@ -88,7 +88,10 @@ class UserService {
             actions.forEach((action) => {
               let newAction = {
                 text: action,
-                minutes: ""
+                minutes: "",
+                next_action: newStep.actions.length + 1,
+                next_step: recipe.steps.length + 1,
+                step: recipe.steps.length
               };
               let matches = /(\d*) to \d* minutes/.exec(action);
 

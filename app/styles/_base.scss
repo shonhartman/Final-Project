@@ -11,7 +11,6 @@ html, body, div, span, h1, p, blockquote, em, img, ins, kbd, q, s, samp, small, 
 		box-sizing: border-box;
 	}
 
-
   	body {
   		background-color: #313567;
   		font-family: 'Source Sans Pro', sans-serif;
@@ -20,25 +19,6 @@ html, body, div, span, h1, p, blockquote, em, img, ins, kbd, q, s, samp, small, 
   		font-weight: 300;
   		letter-spacing: 1px;
   		color: #3a3939;
-  		text-shadow: 0 0 0.5px rgba(58, 57, 57, 0.25);
-        &.is-scroll {
-          background-attachment: scroll, scroll;
-          background-size: auto, 100% auto;
-        }
-        &.is-loading * {
-    			transition: none !important;
-    			animation: none !important;
-    		}
-  	}
-
-  	input {
-  		font-family: 'Source Sans Pro', sans-serif;
-  		font-size: 18pt;
-  		line-height: 1.75em;
-  		font-weight: 300;
-  		letter-spacing: 1px;
-  		color: #3a3939;
-  		text-shadow: 0 0 0.5px rgba(58, 57, 57, 0.25);
   	}
 
   	h1, h2 {

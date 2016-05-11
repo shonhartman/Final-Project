@@ -18,7 +18,7 @@
 				chopping <strong>peanuts</strong>, and <br />
 				under the <a href="http://html5up.net/license">slicing scallions</a>.</p>
 				<footer>
-					<a ng-href="#step_0" class="button style2" du-smooth-scroll>Start Cooking</a>
+					<a ng-href="#step_0" class="button style2" du-smooth-scroll duration="1000">Start Cooking</a>
 				</footer>
 			</section>
 
@@ -37,7 +37,7 @@
 
 			<!-- List Item -->
 			<article class="container box style2" ng-repeat="action in step.actions">
-				<header id="action_{{ $index + 1}}">
+				<header id="step_{{ action.step }}_action_{{ $index + 1}}">
 					<p>{{ action.text }}</p>
 
 					<div class="timer" ng-if="action.minutes">
@@ -52,8 +52,8 @@
 					<div class="12u$">
 						<ul class="actions" ng-if="!action.minutes" ng-model="timer">
 							<li>
-								<input type="button" value="Done" ng-href="#action_{{ $index + 1 }}" ng-if="$last === false" du-smooth-scroll>
-								<input type="button" value="Done" ng-href="#step_{{ $parent.$parent.$index + 1 }}" ng-if="$last" du-smooth-scroll>
+								<input type="button" value="Done" ng-href="#step_{{ action.step }}_action_{{ action.next_action }}" ng-if="$last === false" du-smooth-scroll duration="1000">
+								<input type="button" value="Done" ng-href="#step_{{ action.next_step }}" ng-if="$last" du-smooth-scroll duration="1000">
 							</li>
 						</ul>
 					</div>

@@ -1,5 +1,6 @@
 class ProfileController {
-  constructor($state, UserService, RecipeService) {
+  constructor($state, UserService, RecipeService, $http) {
+    this._$http = $http;
     this._$state = $state;
     this._UserService = UserService;
     this._RecipeService = RecipeService;
@@ -16,10 +17,53 @@ class ProfileController {
     .catch((error) => {
       this._$state.go("login");
     });
+
+    this.getCurrentRecipes();
   }
 
-  recipe() {
-    this._UserService.recipe(this.recipeUrl)
+  getCurrentRecipes() {
+    this._$http
+      .get('https://aqueous-castle-96746.herokuapp.com/cookbook/all/all/Last%20week')
+      .then((response) => {
+        console.log("request back");
+        let recipes = [];
+
+        let el = document.createElement('div');
+        el.innerHTML = response.data;
+
+        let recipeThumbs = el.querySelectorAll(".recipe-thumb");
+
+        Array.from(recipeThumbs).forEach((thumb) => {
+          let newRecipe = {
+            title: "",
+            subtitle: "",
+            url: "",
+            image: ""
+          };
+
+          let url = thumb.querySelector('a').href;
+          let splitUrl = url.split("/");
+          splitUrl[2] = "aqueous-castle-96746.herokuapp.com";
+          url = splitUrl.join("/")
+
+          newRecipe.url = url;
+          newRecipe.image = thumb.querySelector('.img-flex').src;
+          newRecipe.title = thumb.querySelector('h3').textContent;
+          newRecipe.subtitle = thumb.querySelector('h6').textContent;
+
+          recipes.push(newRecipe);
+        });
+
+        this.currentRecipes = recipes;
+        console.log(this.currentRecipes);
+      })
+      .catch(error => {
+        console.error(error);
+      })
+  }
+
+  recipe(url) {
+    this._UserService.recipe(url)
       .then((response) => {
         return this._RecipeService.add(response);
       })

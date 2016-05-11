@@ -4,17 +4,17 @@ button,
   transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
   position: relative;
   display: inline-block;
-  border: 0;
   background: #E27423;
   color: #fff;
   text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25);
   cursor: pointer;
   text-decoration: none;
   outline: 0;
-  padding: 1em 3em 1em 3em;
   text-align: center;
   border-radius: 3em;
   font-weight: 400;
+  padding: 0.5em 0.75em 0.5em 0.75em;
+
 }
 
   input[type="button"]:hover,
@@ -37,4 +37,21 @@ button,
       background: rgba(255, 255, 255, 0.1);
       color: #fff !important;
       text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25) !important;
+    }
+
+    #logout-button {
+      background-color: $medium-gray;
+      transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
+      position: relative;
+      display: inline-block;
+      border: 0;
+      color: #fff;
+      text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      text-decoration: none;
+      outline: 0;
+      padding: 1em 3em 1em 3em;
+      text-align: center;
+      border-radius: 3em;
+      font-weight: 400;
     }

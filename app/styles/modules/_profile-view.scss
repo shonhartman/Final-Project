@@ -2,7 +2,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-}
+  @media #{$LG} {
+  	max-width: 450px;
+    flex-wrap: wrap-reverse;
+    margin: 0 auto;
+  	}
+  }
 
 .card {
   $base-border-color: gainsboro !default;
@@ -23,7 +28,7 @@
   background-color: $card-background;
   border: $card-border;
   border-radius: $base-border-radius;
-  box-shadow: 0 2px 4px darken($base-background-color, 10%);
+  box-shadow: 0 2px 4px darken(#666, 10%);
   cursor: pointer;
   flex-basis: 15em;
   flex-grow: 1;
@@ -31,10 +36,12 @@
   position: relative;
   transition: all 0.2s ease-in-out;
 
+
+
   .card-image {
-    background-color: $card-image-hover-color;
-    height: 150px;
-    max-height: 150px;
+    // background-color: $card-image-hover-color;
+    height: 100%;
+    // max-height: 650px;
     overflow: hidden;
 
     img {
