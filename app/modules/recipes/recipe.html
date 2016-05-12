@@ -12,16 +12,15 @@
 		<!-- Banner -->
 			<section id="banner">
 				<header>
-					<h2>Tips and Techniques</h2>
+					<h2>Ingredients</h2>
 				</header>
-				<p>Watch technique videos on <a href="http://n33.co">boiling water</a> , <a href="http://html5up.net">mincing garlic</a>.<br />
-				chopping <strong>peanuts</strong>, and <br />
-				under the <a href="http://html5up.net/license">slicing scallions</a>.</p>
+				<ul ng-repeat="step in recipeCtrl.recipe.steps">
+					<li>{{ recipeCtrl.recipe.ingredients.ingredient }}</li>
+				</ul>
 				<footer>
 					<a ng-href="#step_0" class="button style2" du-smooth-scroll duration="1000">Start Cooking</a>
 				</footer>
 			</section>
-
 
 		<!-- Feature 1 -->
 		<span ng-repeat="step in recipeCtrl.recipe.steps">
@@ -36,7 +35,7 @@
 			</article>
 
 			<!-- List Item -->
-			<article class="container box style2" ng-repeat="action in step.actions">
+			<article class="container box style2" ng-repeat="action in step.actions" ng-class="{ 'completed': action.completed }">
 				<header id="step_{{ action.step }}_action_{{ $index + 1}}">
 					<p>{{ action.text }}</p>
 
@@ -53,7 +52,7 @@
 						<ul class="actions" ng-if="!action.minutes" ng-model="timer">
 							<li>
 								<input type="button" value="Done" ng-href="#step_{{ action.step }}_action_{{ action.next_action }}" ng-if="$last === false" du-smooth-scroll duration="1000">
-								<input type="button" value="Done" ng-href="#step_{{ action.next_step }}" ng-if="$last" du-smooth-scroll duration="1000">
+								<input type="button" value="Done" ng-href="#step_{{ action.next_step }}" ng-if="$last" du-smooth-scroll duration="1000" ng-click="recipeCtrl.toggleCompleted(action)">
 							</li>
 						</ul>
 					</div>

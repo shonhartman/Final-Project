@@ -3,8 +3,6 @@ class RecipeController {
     this._$http = $http;
   }
 
-
-
   scrape() {
     console.log("scraping");
         this._$http({
@@ -18,13 +16,14 @@ class RecipeController {
 
           let title = el.querySelector(".main-title");
           console.log(title.textContent);
+
+          let description = el.querySelector(".rec-descrip-details-section")
       })
         .catch(error => {
           console.error(error);
         })
-
-  }
-}
+      }
+    }
 
 
 export default RecipeController;

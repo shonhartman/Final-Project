@@ -65,15 +65,20 @@ class UserService {
         .then((response) => {
           console.log("request back");
           let recipe = {
-            steps: []
+            steps: [],
+            ingredients: []
           };
 
           let el = document.createElement('div');
           el.innerHTML = response.data;
 
+          let ingredients = el.querySelector(".ingredients-list")
+          ingredients.ingredient = el.querySelector("data-ingredient")
+          
           let instructions = el.querySelector("#instructions");
           recipe.title = el.querySelector(".main-title").textContent;
           recipe.small = el.querySelector(".sub-title").textContent;
+
 
           let steps = instructions.querySelectorAll(".instr-step");
 

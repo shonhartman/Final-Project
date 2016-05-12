@@ -27,6 +27,13 @@ class RecipeController {
     });
   }
 
+  toggleCompleted(action) {
+    console.log("toggling")
+     action.completed = !action.completed;
+     console.log(action);
+   }
+ 
+
   startTime(action) {
     console.log("clicked start");
    action.timerRunning = true;
