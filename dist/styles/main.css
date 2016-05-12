@@ -311,7 +311,8 @@ ul {
   .box.style1.left .image {
     right: 0; }
   .box.style1.left .image img {
-    left: 0; }
+    left: 0;
+    border-radius: 0 5px 5px 0; }
   .box.style1.left .inner {
     margin-right: 50%;
     padding-right: 3em; }
@@ -393,11 +394,11 @@ ul {
   text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25);
   text-align: center;
   margin: 0;
-  padding: 14em 0 14em 0;
+  padding: 6em 0 4em 0;
   cursor: default; }
   #header header {
     display: inline-block;
-    padding: 0 0 4.5em 0; }
+    padding: 0 0 1.5em 0; }
     #header header h1 {
       font-weight: 600;
       font-size: 2em;
@@ -447,14 +448,16 @@ ul {
   text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25);
   text-align: center;
   background: #999 url(".../images/banner.svg") bottom center no-repeat;
-  padding: 5em 0 5em 0;
+  padding: 2em 0 2em 0;
   margin: 0;
   background-size: 125% auto; }
+  #banner ul {
+    margin-bottom: 0; }
   #banner .button {
     color: #999;
     text-shadow: 0 0 0.5px rgba(53, 184, 130, 0.25); }
   #banner header {
-    margin: 0 0 2em 0; }
+    margin: 0 0 1em 0; }
   #banner header h2 {
     font-weight: 400;
     font-size: 1.75em;
@@ -621,7 +624,7 @@ button.style2:hover,
 
 @media only screen and (max-width: 1080px) {
   #banner {
-    padding: 4em 0 4em 0;
+    padding: 2em 0 2em 0;
     background-size: auto, 175% auto; } }
 
 @media only screen and (max-width: 840px) {

@@ -7,14 +7,14 @@ class RecipeService {
 
 
   login(user) {
-    this.recipes = this._$firebaseArray(this.ref.child('users').child(user.uid).child('recipes'));
+    this.recipes = this._$firebaseArray(this.ref.child('recipes'));
     // use $loaded()
     return this.recipes;
   }
 
   get(user, id) {
     return new this._$q((resolve, reject) => {
-      this.recipes = this._$firebaseArray(this.ref.child('users').child(user.uid).child('recipes'));
+      this.recipes = this._$firebaseArray(this.ref.child('recipes'));
 
       this.recipes.$loaded()
         .then((response) => {
@@ -30,6 +30,10 @@ class RecipeService {
 
   add(recipe) {
     return this.recipes.$add(recipe);
+  }
+
+  save() {
+    this.recipes.$save(this.recipe);
   }
 
 

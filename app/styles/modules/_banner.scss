@@ -4,14 +4,15 @@
   text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25);
   text-align: center;
   background: #999 url(".../images/banner.svg") bottom center no-repeat;
-  padding: 5em 0 5em 0;
+  padding: 2em 0 2em 0;
   margin: 0;
   background-size: 125% auto;
+    ul {margin-bottom: 0;}
     .button {
       color: #999;
       text-shadow: 0 0 0.5px rgba(53, 184, 130, 0.25);
     }
-    header {margin: 0 0 2em 0;}
+    header {margin: 0 0 1em 0;}
     header h2 {
       font-weight: 400;
       font-size: 1.75em;

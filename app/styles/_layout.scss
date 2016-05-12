@@ -51,7 +51,8 @@
           overflow: hidden;
         }
         &.style1 .image img {
-          border-radius: 5px 0 0 5px;          position: absolute;
+          border-radius: 5px 0 0 5px;
+          position: absolute;
           top: 0;
           height: 100%;
           width: auto;
@@ -63,7 +64,10 @@
           padding-left: 3em;
         }
         &.style1.left .image {right: 0;}
-        &.style1.left .image img {left: 0;}
+        &.style1.left .image img {
+          left: 0;
+          border-radius: 0 5px 5px 0;
+        }
         &.style1.left .inner {
           margin-right: 50%;
           padding-right: 3em;

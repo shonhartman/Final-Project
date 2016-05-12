@@ -1,8 +1,10 @@
 class RecipeController {
-  constructor(RecipeService, UserService, $stateParams, $interval) {
+  constructor(RecipeService, UserService, $stateParams, $interval, $window) {
     this._UserService = UserService;
     this._RecipeService = RecipeService;
     this._$interval = $interval;
+
+    this.shareLink = $window.location.href;
 
     this.sound = new buzz.sound("assets/audio/buzz.mp3", {
       formats: ["mp3"],
@@ -17,6 +19,7 @@ class RecipeController {
         .then((response) => {
           console.log(response);
           this.recipe = response;
+          this.startRecipeTimers();
         })
         .catch((error) => {
           console.error(error);
@@ -25,37 +28,47 @@ class RecipeController {
     .catch((error) => {
       this.$state.go("login");
     });
+
+  }
+
+  startRecipeTimers() {
+    this._$interval(() => {
+      this.recipe.steps.forEach((step) => {
+        step.actions
+          .filter((action) => Number(action.minutes) > 0)
+          .forEach((action) => {
+            if (action.timerRunning) {
+              action.timeLeft--;
+              if (action.timeLeft <= 0) {
+                action.timerRunning = false;
+                this.sound.play();
+              }
+            }
+          });
+      });
+
+    }, 1000);
   }
 
   toggleCompleted(action) {
-    console.log("toggling")
-     action.completed = !action.completed;
-     console.log(action);
-   }
- 
+    action.completed = !action.completed;
+    this._RecipeService.save();
+  }
 
   startTime(action) {
-    console.log("clicked start");
-   action.timerRunning = true;
-
-   action.time = this._$interval(() => {
-     action.timeLeft--;
-     if (action.timeLeft <= 0) {
-       action.timerRunning = false;
-       this._$interval.cancel(action.time);
-       this.sound.play();
-     }
-   }, 1000);
+    action.timerRunning = true;
+    this._RecipeService.save();
  }
 
  stopTime(action) {
    action.timerRunning = false;
-   this._$interval.cancel(action.time);
+   this._RecipeService.save();
  }
 
  resetTime(action) {
    action.timerRunning = false;
    action.timeLeft = action.minutes * 60;
+   this._RecipeService.save();
  }
 }
 
