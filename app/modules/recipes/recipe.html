@@ -9,22 +9,22 @@
 				</footer>
 			</section>
 
-		<!-- Banner -->
+		<!-- Ingredient List -->
 			<section id="banner">
 				<header>
 					<h2>Ingredients</h2>
 				</header>
-				<ul ng-repeat="step in recipeCtrl.recipe.steps">
-					<li>{{ recipeCtrl.recipe.ingredients.ingredient }}</li>
+				<ul ng-repeat="ingredient in recipeCtrl.recipe.ingredients">
+					<li>{{ ingredient }}</li>
 				</ul>
 				<footer>
 					<a ng-href="#step_0" class="button style2" du-smooth-scroll duration="1000">Start Cooking</a>
 				</footer>
 			</section>
 
-		<!-- Feature 1 -->
+		<!-- Steps -->
 		<span ng-repeat="step in recipeCtrl.recipe.steps">
-			<article id="step_{{ $index }}" class="container box style1 right">
+			<article id="step_{{ $index }}" class="container box style1" ng-class="{ 'right': $even, 'left': $odd }">
 				<a href="#" class="image fit"><img ng-src="{{ step.images[0] }}" alt="" /></a>
 				<div class="inner">
 					<header>
@@ -34,8 +34,8 @@
 				</div>
 			</article>
 
-			<!-- List Item -->
-			<article class="container box style2" ng-repeat="action in step.actions" ng-class="{ 'completed': action.completed }">
+			<!-- Actions -->
+			<article class="container box style2" ng-repeat="action in step.actions" ng-class="{ 'completed': action.completed }" ng-hide="$last" >
 				<header id="step_{{ action.step }}_action_{{ $index + 1}}">
 					<p>{{ action.text }}</p>
 
@@ -51,7 +51,7 @@
 					<div class="12u$">
 						<ul class="actions" ng-if="!action.minutes" ng-model="timer">
 							<li>
-								<input type="button" value="Done" ng-href="#step_{{ action.step }}_action_{{ action.next_action }}" ng-if="$last === false" du-smooth-scroll duration="1000">
+								<input type="button" value="Done" ng-href="#step_{{ action.step }}_action_{{ action.next_action }}" ng-if="$last === false" du-smooth-scroll duration="1000" ng-click="recipeCtrl.toggleCompleted(action)">
 								<input type="button" value="Done" ng-href="#step_{{ action.next_step }}" ng-if="$last" du-smooth-scroll duration="1000" ng-click="recipeCtrl.toggleCompleted(action)">
 							</li>
 						</ul>

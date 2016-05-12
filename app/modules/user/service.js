@@ -72,9 +72,13 @@ class UserService {
           let el = document.createElement('div');
           el.innerHTML = response.data;
 
-          let ingredients = el.querySelector(".ingredients-list")
-          ingredients.ingredient = el.querySelector("data-ingredient")
-          
+          let ingredients = el.querySelectorAll(".ingredients-list > li > a");
+
+          Array.from(ingredients).forEach((ingredient) => {
+            console.log(ingredient);
+            recipe.ingredients.push(ingredient.textContent)
+          });
+
           let instructions = el.querySelector("#instructions");
           recipe.title = el.querySelector(".main-title").textContent;
           recipe.small = el.querySelector(".sub-title").textContent;

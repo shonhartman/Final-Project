@@ -605,10 +605,8 @@ button.style2:hover,
     margin: 0 0 3em 0; }
 
 .completed {
-  text-decoration: line-through;
-  background-color: blue;
   color: #CED0D2; }
-  .completed input {
+  .completed button, .completed input, .completed button:hover, .completed button:focus, .completed [type='button']:hover, .completed [type='button']:focus, .completed [type='reset']:hover, .completed [type='reset']:focus, .completed [type='submit']:hover, .completed [type='submit']:focus {
     color: #CED0D2;
     background-color: #fff;
     border: 1px solid #CED0D2; }
