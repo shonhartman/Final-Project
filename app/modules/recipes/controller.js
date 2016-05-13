@@ -6,7 +6,7 @@ class RecipeController {
 
     this.shareLink = $window.location.href;
 
-    this.sound = new buzz.sound("assets/audio/buzz.mp3", {
+    this.sound = new buzz.sound("assets/audio/buzz", {
       formats: ["mp3"],
       preload: true
     });

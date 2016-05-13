@@ -10,6 +10,11 @@ var source = require('vinyl-source-stream');
 var browserSync = require('browser-sync');
 var historyApiFallback = require('connect-history-api-fallback');
 
+gulp.task('deploy', function() {
+	return gulp.src('./dist/**/*')
+		.pipe(plugins.ghPages());
+});
+
 gulp.task('browser-sync', function () {
 	browserSync({
 		server: {

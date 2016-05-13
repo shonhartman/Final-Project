@@ -12,6 +12,7 @@
     "angular-scroll": "^1.0.0",
     "angularfire": "^1.2.0",
     "firebase": "^2.4.2",
+    "gulp-gh-pages": "^0.5.4",
     "partialify": "^3.1.6"
   },
   "devDependencies": {
