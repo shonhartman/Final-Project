@@ -1,10 +1,10 @@
 class RecipeController {
-  constructor(RecipeService, UserService, $stateParams, $interval, $window) {
+  constructor(RecipeService, UserService, $stateParams, $interval, $location, toastr) {
     this._UserService = UserService;
     this._RecipeService = RecipeService;
     this._$interval = $interval;
 
-    this.shareLink = $window.location.href;
+    this.shareLink = $location.absUrl();
 
     this.sound = new buzz.sound("assets/audio/buzz", {
       formats: ["mp3"],
@@ -42,6 +42,9 @@ class RecipeController {
               if (action.timeLeft <= 0) {
                 action.timerRunning = false;
                 this.sound.play();
+                app.controller('foo', function($scope, toastr) {
+                toastr.success('Hello world!', 'Toastr fun!');
+});
               }
             }
           });
