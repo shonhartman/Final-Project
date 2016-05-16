@@ -667,6 +667,8 @@ button.style2:hover,
     color: #CED0D2;
     background-color: #fff;
     border: 1px solid #CED0D2; }
+  .completed p {
+    color: #CED0D2; }
 
 #profile-submit-btn {
   margin: 10px 0 80px 50%;
