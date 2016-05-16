@@ -1,6 +1,7 @@
 import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import duScroll from 'angular-scroll';
+import toastr from 'angular-toastr';
 
 import firebase from 'firebase';
 import angularFire from 'angularfire';
@@ -12,6 +13,7 @@ let App = angular.module('app', [
   'ui.router',
   'firebase',
   'duScroll',
+  'toastr',
 
   'app.user',
   'app.recipe'

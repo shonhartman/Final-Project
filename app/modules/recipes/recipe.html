@@ -30,7 +30,6 @@
 					<header>
 						<h2>{{ step.title }}</h2>
 					</header>
-					<!-- <a ng-href="#action_0" class="button style2" du-smooth-scroll>Done</a> -->
 				</div>
 			</article>
 
@@ -39,7 +38,7 @@
 				<header id="step_{{ action.step }}_action_{{ $index + 1}}">
 					<p>{{ action.text }}</p>
 
-					<div class="timer" ng-if="action.minutes">
+					<div class="timer" ng-if="action.minutes" ng-class="{ 'completed': action.timeLeft === 0 }">
 					  <h1>{{ action.timeLeft | timecode }}</h1>
 					  <div class="controls">
 					    <button id="start" ng-click="recipeCtrl.startTime(action)" ng-disabled="action.timerRunning">start</button>

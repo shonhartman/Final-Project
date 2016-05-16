@@ -3,11 +3,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  // @media #{$LG} {
-  // 	// max-width: 450px;
-  //   flex-wrap: wrap-reverse;
-  //   margin: 0 auto;
-  // 	}
   }
 
 .card {
@@ -32,12 +27,10 @@
   box-shadow: 0 2px 4px darken(#666, 10%);
   cursor: pointer;
   flex-basis: 13em;
-  flex-grow: 0;
+  flex-grow: 1;
   margin: 0 $card-margin $base-spacing $card-margin;
   position: relative;
   transition: all 0.2s ease-in-out;
-
-
 
   .card-image {
     // background-color: $card-image-hover-color;

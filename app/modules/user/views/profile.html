@@ -1,3 +1,19 @@
+<div class="button-group">
+  <label>
+    <input type="radio" name="button-group" value="item" checked>
+    <span class="button-group-item" ng-click="profileCtrl.setLastWeek()">Last Week</span>
+  </label>
+  <label>
+    <input type="radio" name="button-group" value="other-item">
+    <span class="button-group-item" ng-click="profileCtrl.setCurrentWeek()">This Week</span>
+  </label>
+  <label>
+    <input type="radio" name="button-group" value="other-item">
+    <span class="button-group-item" ng-click="profileCtrl.setNextWeek()">Next Week</span>
+  </label>
+</div>
+
+<input id="profile-submit-btn" ng-click="profileCtrl.logout()" type="submit" value="logout" class="btn" />
 
 <div class="cards">
   <div class="card" ng-click="profileCtrl.recipe(recipe.url)" ng-repeat="recipe in profileCtrl.currentRecipes">
@@ -12,5 +28,3 @@
     </div>
   </div>
 </div>
-
-<input id="profile-submit-btn" ng-click="profileCtrl.logout()" type="submit" value="logout" class="btn" />

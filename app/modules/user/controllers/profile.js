@@ -6,6 +6,8 @@ class ProfileController {
     this._RecipeService = RecipeService;
     this.recipeUrl = "https://www.blueapron.com/recipes/middle-eastern-chicken-chickpea-stew-with-cilantro-chermoula-pita-croutons";
 
+    this.weeklyRecipeUrl = "https://aqueous-castle-96746.herokuapp.com/cookbook/all/all/Last%20week"
+
     this._UserService
     .isLoggedIn()
     .then((response) => {
@@ -18,12 +20,27 @@ class ProfileController {
       this._$state.go("login");
     });
 
+    this.setLastWeek();
+  }
+
+  setNextWeek() {
+    this.weeklyRecipeUrl = "https://aqueous-castle-96746.herokuapp.com/cookbook/all/all/Next%20Week"
+    this.getCurrentRecipes();
+  }
+
+  setCurrentWeek() {
+    this.weeklyRecipeUrl = "https://aqueous-castle-96746.herokuapp.com/cookbook/all/all/This%20Week"
+    this.getCurrentRecipes();
+  }
+
+  setLastWeek() {
+    this.weeklyRecipeUrl = "https://aqueous-castle-96746.herokuapp.com/cookbook/all/all/Last%20week"
     this.getCurrentRecipes();
   }
 
   getCurrentRecipes() {
     this._$http
-      .get('https://aqueous-castle-96746.herokuapp.com/cookbook/all/all/Last%20week')
+      .get(this.weeklyRecipeUrl)
       .then((response) => {
         console.log("request back");
         let recipes = [];

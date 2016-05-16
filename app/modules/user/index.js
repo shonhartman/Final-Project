@@ -1,5 +1,4 @@
 import angular from 'angular';
-import angulartoastr from 'angular-toastr';
 
 import config from './config';
 import profileController from './controllers/profile';

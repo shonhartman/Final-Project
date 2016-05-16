@@ -116,13 +116,11 @@ class UserService {
               }
             })
 
-            //get image url///////////////////////////////////
             let images = step.querySelectorAll("img");
 
             Array.from(images).forEach((image) => {
               newStep.images.push(image.src);
             });
-            ////////////////////////////////////////////////////////////
 
             recipe.steps.push(newStep);
           });
