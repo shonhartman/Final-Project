@@ -41,8 +41,8 @@
 					<div class="timer" ng-if="action.minutes" ng-class="{ 'completed': action.timeLeft === 0 }">
 					  <h1>{{ action.timeLeft | timecode }}</h1>
 					  <div class="controls">
-					    <button id="start" ng-click="recipeCtrl.startTime(action)" ng-disabled="action.timerRunning">start</button>
-							<button ng-href="#step_{{ action.step }}_action_{{ action.next_action }}" du-smooth-scroll duration="1000">start</button>
+					    <button id="start" ng-click="recipeCtrl.startTime(action)" ng-disabled="action.timerRunning || action.timeLeft === 0">start</button>
+							<button ng-href="#step_{{ action.next_step }}" du-smooth-scroll duration="1000">start</button>
 					    <button id="stop" ng-click="recipeCtrl.stopTime(action)" ng-disabled="!action.timerRunning">stop</button>
 					    <button id="reset" ng-click="recipeCtrl.resetTime(action)">reset</button>
 					  </div>
