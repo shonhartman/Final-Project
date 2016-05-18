@@ -42,6 +42,7 @@
 					  <h1>{{ action.timeLeft | timecode }}</h1>
 					  <div class="controls">
 					    <button id="start" ng-click="recipeCtrl.startTime(action)" ng-disabled="action.timerRunning">start</button>
+							<button id="start" ng-href="#step_{{ action.next_step }}">start</button>
 					    <button id="stop" ng-click="recipeCtrl.stopTime(action)" ng-disabled="!action.timerRunning">stop</button>
 					    <button id="reset" ng-click="recipeCtrl.resetTime(action)">reset</button>
 					  </div>
