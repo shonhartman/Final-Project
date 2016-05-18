@@ -1,7 +1,8 @@
 class RecipeController {
-  constructor(RecipeService, UserService, $stateParams, $interval, $location, $state, toastr) {
+  constructor(RecipeService, UserService, $stateParams, $document, $interval, $location, $state, toastr) {
     this._UserService = UserService;
     this._RecipeService = RecipeService;
+    this._$document = $document;
     this._$interval = $interval;
     this._toastr = toastr;
     this._$state = $state;
@@ -45,6 +46,8 @@ class RecipeController {
                 action.timerRunning = false;
                 this.sound.play();
                 this._toastr.success ('Step Complete!', 'Timer Finished!', {timeOut: null});
+                let nextAction = angular.element(document.querySelector(`#step_${action.step}_action_${action.next_action - 1}`));
+                this._$document.scrollToElement(nextAction);
               }
             }
           });

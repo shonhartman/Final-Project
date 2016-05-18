@@ -8,6 +8,8 @@ class ProfileController {
 
     this.weeklyRecipeUrl = "https://aqueous-castle-96746.herokuapp.com/cookbook/all/all/Last%20week"
 
+    this.showOldRecipeForm = false;
+
     this._UserService
     .isLoggedIn()
     .then((response) => {
@@ -21,6 +23,10 @@ class ProfileController {
     });
 
     this.setLastWeek();
+  }
+
+  toggleOldForm() {
+    this.showOldRecipeForm = !this.showOldRecipeForm;
   }
 
   setNextWeek() {
