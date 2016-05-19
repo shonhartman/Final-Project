@@ -1,5 +1,7 @@
 class LoginController {
   constructor($state, UserService) {
+    console.log("login");
+
     this._$state = $state;
     this._UserService = UserService;
     this.user = this._UserService.new();
@@ -12,6 +14,10 @@ class LoginController {
       this.user = response;
       this._$state.go("profile");
     });
+  }
+
+  signUp() {
+    this._$state.go("register");
   }
 }
 

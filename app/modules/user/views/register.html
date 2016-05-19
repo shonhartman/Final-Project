@@ -1,17 +1,20 @@
-<form id="header" ng-submit="loginCtrl.login()">
+<form id="header" ng-submit="registerCtrl.register()">
   <header>
     <h1>Sign Up</h1>
   </header>
   <fieldset>
     <div class="wy-control-group">
       <div class="wy-control">
-        <input id="form-style" type="text" placeholder="username" ng-model="loginCtrl.user.email"/>
+        <input id="form-style" type="text" placeholder="username" ng-model="registerCtrl.newUser.email"/>
       </div>
       <div class="wy-control">
-        <input id="form-style" type="password" placeholder="password" ng-model="loginCtrl.user.password"/>
+        <input id="form-style" type="password" placeholder="password" ng-model="registerCtrl.newUser.password"/>
       </div>
     </div>
     <footer>
     <input type="submit" class="btn" />
   </fieldset>
+
+  <a id="alternate-option" href="http://shonhartman.github.io/Final-Project/#/login">Already have an account? Login Here.</a>
+
 </form>

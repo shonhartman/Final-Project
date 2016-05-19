@@ -5,10 +5,12 @@ html, body, div, span, h1, p, blockquote, em, img, ins, kbd, q, s, samp, small, 
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+  outline: none;
 }
 
 *, *:before, *:after {
 		box-sizing: border-box;
+    outline: none;
 	}
 
   	body {

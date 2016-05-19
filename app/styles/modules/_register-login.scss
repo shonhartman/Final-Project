@@ -9,7 +9,13 @@
   margin-bottom: 45px;
   outline-color: none;
   text-shadow: none;
+  color: #fff;
     &:focus {
       outline-color: none;
     }
+}
+
+#alternate-option {
+  display: inline-block;
+  margin-top: 25px;
 }
