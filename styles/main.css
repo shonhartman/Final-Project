@@ -195,7 +195,8 @@ html, body, div, span, h1, p, blockquote, em, img, ins, kbd, q, s, samp, small, 
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+  outline: none; }
 
 *, *:before, *:after {
   box-sizing: border-box; }
@@ -638,7 +639,7 @@ button.style2:hover,
     color: #333;
     margin: 0 4px;
     padding: 25px 12px;
-    min-width: 75px;
+    min-width: 65px;
     border-radius: 50%;
     font: 200;
     cursor: pointer;
