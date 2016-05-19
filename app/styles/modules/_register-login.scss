@@ -1,0 +1,15 @@
+#form-style {
+  background-color: $brand-color;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 75%;
+  text-align: left;
+  margin: 0 auto;
+  margin-bottom: 45px;
+  outline-color: none;
+  text-shadow: none;
+    &:focus {
+      outline-color: none;
+    }
+}
