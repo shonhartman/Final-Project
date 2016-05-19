@@ -4,7 +4,7 @@ button,
   transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
   position: relative;
   display: inline-block;
-  background: #E27423;
+  background: #E27423 !important;
   color: #fff;
   text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25);
   cursor: pointer;
@@ -59,8 +59,7 @@ button,
         padding-bottom: 50px;
         margin-left: 0;
       }
-      // left: 50%;
-      // transform: translateX(-45%);
+
       $base-border-color: gainsboro !default;
       $base-border-radius: 3px !default;
       $base-line-height: 1.5em !default;
