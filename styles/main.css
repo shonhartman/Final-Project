@@ -640,16 +640,19 @@ button.style2:hover,
     padding: 3px;
     font-weight: 100; }
   .timer #start, .timer #stop, .timer #reset {
-    max-width: 70px;
     background-color: #fff;
     color: #333;
     margin: 0 4px;
     padding: 25px 12px;
-    min-width: 65px;
+    min-width: 75px;
     border-radius: 50%;
     font: 200;
     cursor: pointer;
     transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+    @media only screen and (max-width: 840px) {
+      .timer #start, .timer #stop, .timer #reset {
+        min-width: 40px;
+        max-width: 70px; } }
     .timer #start:hover, .timer #stop:hover, .timer #reset:hover {
       transform: scale(1.05); }
     .timer #start:disabled, .timer #stop:disabled, .timer #reset:disabled {
