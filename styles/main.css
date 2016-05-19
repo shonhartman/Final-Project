@@ -609,7 +609,7 @@ button,
   transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
   position: relative;
   display: inline-block;
-  background: #E27423;
+  background: #E27423 !important;
   color: #fff;
   text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25);
   cursor: pointer;
