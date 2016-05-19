@@ -5,6 +5,7 @@
   display: inline-block;
   padding: 0 0 10px 10px;
   margin: 0 0 -20px 0;
+
   h1 {
     text-align: center;
     font-size: 2.45em;
@@ -13,22 +14,26 @@
     font-weight: 100;
   }
   #start, #stop, #reset {
-    max-width: 70px;
+    // max-width: 70px;
     background-color: #fff;
     color: #333;
     margin: 0 4px;
     padding: 25px 12px;
-    min-width: 65px;
+    min-width: 75px;
     border-radius: 50%;
     font: 200;
     cursor: pointer;
     transition: all .8s cubic-bezier(.175, .885, .32, 1.275);
-    &:hover {
-      transform: scale(1.05);
-    }
-    &:disabled {
-      color: #999;
-    }
+      @media #{$Mid} {
+        min-width: 40px;
+        max-width: 70px;
+       }
+      &:hover {
+        transform: scale(1.05);
+      }
+      &:disabled {
+        color: #999;
+      }
   }
 
   #start {
