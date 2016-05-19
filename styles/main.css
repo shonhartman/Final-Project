@@ -199,7 +199,8 @@ html, body, div, span, h1, p, blockquote, em, img, ins, kbd, q, s, samp, small, 
   outline: none; }
 
 *, *:before, *:after {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  outline: none; }
 
 body {
   background-color: #313567;
@@ -500,9 +501,14 @@ ul {
   margin: 0 auto;
   margin-bottom: 45px;
   outline-color: none;
-  text-shadow: none; }
+  text-shadow: none;
+  color: #fff; }
   #form-style:focus {
     outline-color: none; }
+
+#alternate-option {
+  display: inline-block;
+  margin-top: 25px; }
 
 input[type="button"],
 button,
