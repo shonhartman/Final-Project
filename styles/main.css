@@ -384,120 +384,6 @@ ul {
     .card:active .card-header {
       background-color: #f7f7f7; }
 
-.modal label {
-  cursor: pointer;
-  margin-bottom: 0; }
-
-.modal label img {
-  border-radius: 150px;
-  display: block;
-  max-width: 300px; }
-
-.modal .modal-state {
-  display: none; }
-
-.modal .modal-trigger {
-  padding: 0.8em 1em; }
-
-.modal .modal-fade-screen {
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.85);
-  opacity: 0;
-  padding-top: 0.6em;
-  text-align: left;
-  transition: opacity 0.25s ease;
-  visibility: hidden;
-  z-index: 99999999999; }
-  @media screen and (min-width: 900px) {
-    .modal .modal-fade-screen {
-      padding-top: 10em; } }
-  .modal .modal-fade-screen .modal-bg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    cursor: pointer; }
-
-.modal .modal-close {
-  position: absolute;
-  top: 1.5em;
-  right: 1.5em;
-  height: 1.5em;
-  width: 1.5em;
-  background: #fff;
-  cursor: pointer; }
-  .modal .modal-close::after, .modal .modal-close::before {
-    position: absolute;
-    top: 3px;
-    right: 3px;
-    bottom: 0;
-    left: 50%;
-    background: #ddd;
-    content: "";
-    display: block;
-    margin: -3px 0 0 -1px;
-    transform: rotate(45deg); }
-  .modal .modal-close:hover::after, .modal .modal-close:hover::before {
-    background: #c4c4c4; }
-  .modal .modal-close::before {
-    transform: rotate(-45deg); }
-
-.modal .modal-inner {
-  background: #fff;
-  border-radius: 3px;
-  margin: auto;
-  margin-top: 0;
-  max-height: 95%;
-  overflow: auto;
-  padding: 1.5em;
-  position: relative;
-  transition: opacity 0.25s ease;
-  width: 95%; }
-  @media screen and (min-width: 600px) {
-    .modal .modal-inner {
-      max-height: 70%;
-      padding: 3em;
-      width: 60%; } }
-  @media screen and (min-width: 900px) {
-    .modal .modal-inner {
-      width: 50%; } }
-  .modal .modal-inner h1 {
-    color: #333;
-    text-align: left;
-    text-transform: capitalize; }
-  .modal .modal-inner p {
-    color: #333;
-    line-height: 1.5; }
-  .modal .modal-inner .modal-intro {
-    margin-bottom: 1em; }
-  .modal .modal-inner .modal-content {
-    color: #333; }
-    @media screen and (min-width: 600px) {
-      .modal .modal-inner .modal-content {
-        columns: 2 8em; } }
-  .modal .modal-inner a.cta {
-    color: #fff;
-    display: inline-block;
-    margin-right: 0.5em;
-    margin-top: 1em; }
-    .modal .modal-inner a.cta:last-child {
-      padding: 0 2em; }
-
-.modal .modal-state:checked + .modal-fade-screen {
-  opacity: 1;
-  visibility: visible; }
-
-.modal .modal-state:checked + .modal-fade-screen .modal-inner {
-  top: 0.5em; }
-
-.modal-open {
-  overflow: hidden; }
-
 #header {
   position: relative;
   color: #fff;
@@ -603,13 +489,27 @@ ul {
     margin: 0 auto;
     width: auto; }
 
+#form-style {
+  background-color: #313567;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  width: 75%;
+  text-align: left;
+  margin: 0 auto;
+  margin-bottom: 45px;
+  outline-color: none;
+  text-shadow: none; }
+  #form-style:focus {
+    outline-color: none; }
+
 input[type="button"],
 button,
 .button {
   transition: background-color 0.35s ease-in-out, color 0.35s ease-in-out;
   position: relative;
   display: inline-block;
-  background: #E27423 !important;
+  background: #E27423;
   color: #fff;
   text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25);
   cursor: pointer;
@@ -618,7 +518,8 @@ button,
   text-align: center;
   border-radius: 3em;
   font-weight: 400;
-  padding: 0.75em 1.5em 0.75em 1.5em; }
+  padding: 0.75em 1.5em 0.75em 1.5em;
+  -webkit-appearance: none; }
 
 input[type="button"]:hover,
 button:hover,
@@ -630,14 +531,16 @@ button.style2,
 .button.style2 {
   color: #3a3939;
   background: #fff;
-  box-shadow: inset 0 0 0 1px #fff; }
+  box-shadow: inset 0 0 0 1px #fff;
+  -webkit-appearance: none; }
 
 input[type="button"].style2:hover,
 button.style2:hover,
 .button.style2:hover {
   background: rgba(255, 255, 255, 0.1);
   color: #fff !important;
-  text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25) !important; }
+  text-shadow: 0 0 0.5px rgba(255, 255, 255, 0.25) !important;
+  -webkit-appearance: none; }
 
 #profile-submit-btn {
   position: static;
